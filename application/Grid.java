@@ -1,7 +1,7 @@
 package application;
 
 public interface Grid {
-	public abstract boolean CheckForWin();
-	public abstract boolean SwitchTurns();
-	public abstract void Win();
+	public abstract boolean checkForWin();
+	public abstract boolean switchTurns();
+	public abstract void win();
 }

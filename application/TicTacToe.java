@@ -9,7 +9,7 @@ public class TicTacToe implements Grid{
 	public TicTacToe(){}
 	
 
-	public boolean CheckForWin(){
+	public boolean checkForWin(){
 		
 		if(true){
 			return true;
@@ -20,12 +20,12 @@ public class TicTacToe implements Grid{
 		}
 		
 
-		public void Win(){
+		public void win(){
 			
 		}
 		
 		
-		public boolean SwitchTurns(){
+		public boolean switchTurns(){
 			turn++;
 			if(turn%2==1){
 				return false;

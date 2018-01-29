@@ -9,7 +9,7 @@ public class SmallBoatGame implements Grid {
 	public SmallBoatGame(){}
 	
 
-	public boolean CheckForWin(){
+	public boolean checkForWin(){
 		
 		if(true){
 			return true;
@@ -19,12 +19,12 @@ public class SmallBoatGame implements Grid {
 		}
 		}
 		
-		public void Win(){
+		public void win(){
 			
 		}
 		
 		
-		public boolean SwitchTurns(){
+		public boolean switchTurns(){
 			turn++;
 			if(turn%2==1){
 				return false;
