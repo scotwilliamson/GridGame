@@ -2,99 +2,222 @@ package application;
 
 import javafx.application.Application;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
-public class TicTacToe implements Grid{
-	int turn=0;
-	Button L1 = new Button("");
-	Button L2 = new Button("");
-	Button L3 = new Button("");
-	Button M1 = new Button("");
-	Button M2 = new Button("");
-	Button M3 = new Button("");
-	Button R1 = new Button("");
-	Button R2 = new Button("");
-	Button R3 = new Button("");
+public class TicTacToe implements Game {
+	static int turn = 0;
+	Button[][] ticTacGrid = new Button[3][3];
+	Button end = new Button("END GAME");
+	Label rules1 = new Label("O starts first! If game ends in a tie");
+	Label rules2 = new Label("click 'End Game'!");
 	
-	public TicTacToe(){}
-	
-	public StackPane setBoard(){
-		StackPane newBoard = new StackPane();
-		
-		L1.setMaxWidth(250);
-		L1.setMaxHeight(250);
-		L1.setTranslateX(-250);
-		L1.setTranslateY(-250);
-		
-		L2.setMaxWidth(250);
-		L2.setMaxHeight(250);
-		L2.setTranslateX(-250);
-		L2.setTranslateY(0);
-		
-		L3.setMaxWidth(250);
-		L3.setMaxHeight(250);
-		L3.setTranslateX(-250);
-		L3.setTranslateY(250);
-		
-		M1.setMaxWidth(250);
-		M1.setMaxHeight(250);
-		M1.setTranslateX(0);
-		M1.setTranslateY(-250);
-		
-		M2.setMaxWidth(250);
-		M2.setMaxHeight(250);
-		M2.setTranslateX(0);
-		M2.setTranslateY(0);
-		
-		M3.setMaxWidth(250);
-		M3.setMaxHeight(250);
-		M3.setTranslateX(0);
-		M3.setTranslateY(250);
-		
-		R1.setMaxWidth(250);
-		R1.setMaxHeight(250);
-		R1.setTranslateX(250);
-		R1.setTranslateY(-250);
-		
-		R2.setMaxWidth(250);
-		R2.setMaxHeight(250);
-		R2.setTranslateX(250);
-		R2.setTranslateY(0);
-		
-		R3.setMaxWidth(250);
-		R3.setMaxHeight(250);
-		R3.setTranslateX(250);
-		R3.setTranslateY(250);
-		
-		newBoard.getChildren().addAll(L1, L2, L3, M1, M2, M3, R1, R2, R3);
-		return newBoard;
+
+	public TicTacToe() {
 	}
+
 	
-	public boolean checkForWin(){
-		
-		if(true){
+	public boolean checkForWin() {
+
+		if (true) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
+
+	public void win() {
+
+	}
+
+	public int switchTurns() {
+		turn++;	
+		return turn;
+	}
+
+
+	public StackPane setBoard() {
+		TicTacToe button1 = new TicTacToeButton();
+		TicTacToe button2 = new TicTacToeButton();
+		TicTacToe button3 = new TicTacToeButton();
+		TicTacToe button4 = new TicTacToeButton();
+		TicTacToe button5 = new TicTacToeButton();
+		TicTacToe button6 = new TicTacToeButton();
+		TicTacToe button7 = new TicTacToeButton();
+		TicTacToe button8 = new TicTacToeButton();
+		TicTacToe button9 = new TicTacToeButton();
+		StackPane newBoard = new StackPane();
+		for (int i = 0; i < 3; i++) {
+			for (int k = 0; k < 3; k++) {
+				ticTacGrid[i][k] = new Button();
+				ticTacGrid[i][k].setMaxHeight(250);
+				ticTacGrid[i][k].setMaxWidth(250);
+				ticTacGrid[i][k].setTranslateX(-250 + i * 250);
+				ticTacGrid[i][k].setTranslateY(-250 + k * 250);
+	
+				newBoard.getChildren().add(ticTacGrid[i][k]);
+			}
+		}
+
+		
+		
+		ticTacGrid[0][0].setOnAction((event) -> {
+			if (((TicTacToeButton) button1).pressCheck == true) {
+				turn = switchTurns();
+				((TicTacToeButton)button1).pressCheck=false;
+				if ((((TicTacToeButton) button1).chooseXO())==true) {
+					ticTacGrid[0][0].setText("X");
+				} 	
+					else {
+					ticTacGrid[0][0].setText("O");
+				}
+			} 
+			else {
+			}
+		});
+		
+		ticTacGrid[0][1].setOnAction((event) -> {
+			if (((TicTacToeButton) button2).pressCheck == true) {
+				turn = switchTurns();
+				((TicTacToeButton)button2).pressCheck=false;
+					if ((((TicTacToeButton) button2).chooseXO())==true) {
+					ticTacGrid[0][1].setText("X");
+				} 	
+					else {
+					ticTacGrid[0][1].setText("O");
+				}
+			} 
+			else {
+			}
+		});
+		
+		ticTacGrid[0][2].setOnAction((event) -> {
+			if (((TicTacToeButton) button3).pressCheck == true) {
+				turn = switchTurns();
+				((TicTacToeButton)button3).pressCheck=false;
+					if ((((TicTacToeButton) button3).chooseXO())==true) {
+					ticTacGrid[0][2].setText("X");
+				} 	
+					else {
+					ticTacGrid[0][2].setText("O");
+				}
+			} 
+			else {
+			}
+		});
+		
+		ticTacGrid[1][0].setOnAction((event) -> {
+			if (((TicTacToeButton) button4).pressCheck == true) {
+				turn = switchTurns();
+				((TicTacToeButton) button4).pressCheck = false;
+					if ((((TicTacToeButton) button4).chooseXO())==true) {
+					ticTacGrid[1][0].setText("X");
+				} 	
+					else {
+					ticTacGrid[1][0].setText("O");
+				}
+			} 
+			else {
+			}
+		});
+		
+		ticTacGrid[1][1].setOnAction((event) -> {
+			if (((TicTacToeButton) button5).pressCheck == true) {
+				turn = switchTurns();
+				((TicTacToeButton) button5).pressCheck = false;
+					if ((((TicTacToeButton) button5).chooseXO())==true) {
+					ticTacGrid[1][1].setText("X");
+				} 	
+					else {
+					ticTacGrid[1][1].setText("O");
+				}
+			} 
+			else {
+			}
+		});
+		
+		ticTacGrid[1][2].setOnAction((event) -> {
+			if (((TicTacToeButton) button6).pressCheck == true) {
+				turn = switchTurns();
+				((TicTacToeButton) button6).pressCheck = false;
+					if ((((TicTacToeButton) button6).chooseXO())==true) {
+					ticTacGrid[1][2].setText("X");
+				} 	
+					else {
+					ticTacGrid[1][2].setText("O");
+				}
+			} 
+			else {
+			}
+		});
+		
+		ticTacGrid[2][0].setOnAction((event) -> {
+			if (((TicTacToeButton) button7).pressCheck == true) {
+				turn = switchTurns();
+				((TicTacToeButton) button7).pressCheck = false;
+					if ((((TicTacToeButton) button7).chooseXO())==true) {
+					ticTacGrid[2][0].setText("X");
+				} 	
+					else {
+					ticTacGrid[2][0].setText("O");
+				}
+			} 
+			else {
+			}
+		});
+		
+		ticTacGrid[2][1].setOnAction((event) -> {
+			if (((TicTacToeButton) button8).pressCheck == true) {
+				turn = switchTurns();
+				((TicTacToeButton) button8).pressCheck = false;
+					if ((((TicTacToeButton) button8).chooseXO())==true) {
+					ticTacGrid[2][1].setText("X");
+				} 	
+					else {
+					ticTacGrid[2][1].setText("O");
+				}
+			} 
+			else {
+			}
+		});
+		
+		ticTacGrid[2][2].setOnAction((event) -> {
+			if (((TicTacToeButton) button9).pressCheck == true) {
+				turn = switchTurns();
+				((TicTacToeButton) button9).pressCheck = false;
+					if ((((TicTacToeButton) button9).chooseXO())==true) {
+					ticTacGrid[2][2].setText("X");
+					System.out.println(turn);
+				} 	
+					else {
+					ticTacGrid[2][2].setText("O");
+				}
+			} 
+			else {
+			}
+		});
+		
+		end.setOnAction((event) -> {
+			newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0], ticTacGrid[0][1],
+					ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1], 
+					ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2);
+			newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe);
+		});
+		
+		end.setMaxSize(250, 250);
+		end.setTranslateX(-500);
+		
+		rules1.setMaxSize(250, 250);
+		rules1.setTranslateX(500);
+		
+		rules2.setMaxSize(250, 250);
+		rules2.setTranslateX(500);
+		rules2.setTranslateY(25);
 		
 
-		public void win(){
-			
-		}
-		
-		
-		public boolean switchTurns(){
-			turn++;
-			if(turn%2==1){
-				return false;
-			}
-			else{
-				return true;
-			}
-			
-		}
+		newBoard.getChildren().addAll(end, rules1, rules2);
+
+		return newBoard;
 	}
+
+}
