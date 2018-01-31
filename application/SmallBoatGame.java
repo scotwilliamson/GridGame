@@ -41,8 +41,8 @@ public class SmallBoatGame implements Game {
 		return newBoard;
 	}
 	
-		public void win(){
-			
+		public boolean win(){
+			return true;
 		}
 		
 		

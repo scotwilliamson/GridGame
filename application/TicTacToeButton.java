@@ -4,7 +4,8 @@ import javafx.scene.control.Button;
 
 public class TicTacToeButton extends TicTacToe{
 	boolean pressCheck= true;
-	public TicTacToeButton(){}
+	public TicTacToeButton(){
+	}
 	
 	public boolean chooseXO(){
 		
