@@ -6,27 +6,39 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
 public class TicTacToe extends Game {
-	
+
 	Button[][] ticTacGrid = new Button[3][3];
 	Label rules1 = new Label("O starts first!");
 	Label rules2 = new Label("Next Game the Opposite Starts First!");
 	Label rules3 = new Label("If game ends in a tie click 'End Game'!");
-	
 
 	public TicTacToe() {
 	}
 
-	
-
 	public boolean checkForWin() {
-		if (((ticTacGrid[0][0].getText() == ticTacGrid[0][1].getText() && ticTacGrid[0][1].getText() == ticTacGrid[0][2].getText()) && ticTacGrid[0][0].getText() != "")
-				|| ((ticTacGrid[0][0].getText() == ticTacGrid[1][0].getText() && ticTacGrid[1][0].getText() == ticTacGrid[2][0].getText()) && ticTacGrid[0][0].getText() != "")
-				|| ((ticTacGrid[0][0].getText() == ticTacGrid[1][1].getText() && ticTacGrid[1][1].getText() == ticTacGrid[2][2].getText()) && ticTacGrid[0][0].getText() != "")
-				|| ((ticTacGrid[1][0].getText() == ticTacGrid[1][1].getText() && ticTacGrid[1][1].getText() == ticTacGrid[1][2].getText()) && ticTacGrid[1][0].getText() != "")
-				|| ((ticTacGrid[2][0].getText() == ticTacGrid[2][1].getText() && ticTacGrid[2][1].getText() == ticTacGrid[2][2].getText()) && ticTacGrid[2][0].getText() != "")
-				|| ((ticTacGrid[0][1].getText() == ticTacGrid[1][1].getText() && ticTacGrid[1][1].getText() == ticTacGrid[2][1].getText()) && ticTacGrid[0][1].getText() != "")
-				|| ((ticTacGrid[0][2].getText() == ticTacGrid[1][2].getText() && ticTacGrid[1][2].getText() == ticTacGrid[2][2].getText()) && ticTacGrid[0][2].getText() != "")
-				|| ((ticTacGrid[0][2].getText() == ticTacGrid[1][1].getText() && ticTacGrid[1][1].getText() == ticTacGrid[2][0].getText()) && ticTacGrid[0][2].getText() != "")) {
+		if (((ticTacGrid[0][0].getText() == ticTacGrid[0][1].getText()
+				&& ticTacGrid[0][1].getText() == ticTacGrid[0][2].getText()) && ticTacGrid[0][0].getText() != "")
+				|| ((ticTacGrid[0][0].getText() == ticTacGrid[1][0].getText()
+						&& ticTacGrid[1][0].getText() == ticTacGrid[2][0].getText())
+						&& ticTacGrid[0][0].getText() != "")
+				|| ((ticTacGrid[0][0].getText() == ticTacGrid[1][1].getText()
+						&& ticTacGrid[1][1].getText() == ticTacGrid[2][2].getText())
+						&& ticTacGrid[0][0].getText() != "")
+				|| ((ticTacGrid[1][0].getText() == ticTacGrid[1][1].getText()
+						&& ticTacGrid[1][1].getText() == ticTacGrid[1][2].getText())
+						&& ticTacGrid[1][0].getText() != "")
+				|| ((ticTacGrid[2][0].getText() == ticTacGrid[2][1].getText()
+						&& ticTacGrid[2][1].getText() == ticTacGrid[2][2].getText())
+						&& ticTacGrid[2][0].getText() != "")
+				|| ((ticTacGrid[0][1].getText() == ticTacGrid[1][1].getText()
+						&& ticTacGrid[1][1].getText() == ticTacGrid[2][1].getText())
+						&& ticTacGrid[0][1].getText() != "")
+				|| ((ticTacGrid[0][2].getText() == ticTacGrid[1][2].getText()
+						&& ticTacGrid[1][2].getText() == ticTacGrid[2][2].getText())
+						&& ticTacGrid[0][2].getText() != "")
+				|| ((ticTacGrid[0][2].getText() == ticTacGrid[1][1].getText()
+						&& ticTacGrid[1][1].getText() == ticTacGrid[2][0].getText())
+						&& ticTacGrid[0][2].getText() != "")) {
 			return true;
 		} else
 			return false;
@@ -318,11 +330,11 @@ public class TicTacToe extends Game {
 		rules2.setMaxSize(250, 250);
 		rules2.setTranslateX(500);
 		rules2.setTranslateY(25);
-		
+
 		rules3.setMaxSize(250, 250);
 		rules3.setTranslateX(500);
 		rules3.setTranslateY(50);
-		
+
 		GG.setMaxSize(250, 250);
 		GG.setTranslateX(125);
 		GG.setTranslateY(-150);
