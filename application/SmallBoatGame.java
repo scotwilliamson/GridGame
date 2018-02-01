@@ -20,16 +20,6 @@ public class SmallBoatGame extends Game {
 	
 	public SmallBoatGame(){}
 
-
-			
-
-	public boolean checkForWin(){
-		if(winCount==true){
-			
-		return true;
-		}
-		else return false;
-	}
 	
 		
 	public StackPane setBoard(){
@@ -151,6 +141,7 @@ public class SmallBoatGame extends Game {
 		int y= ((int)(Math.random()/2*10));
 		grid[x][y].setOnAction((event)-> {
 			grid[x][y].setText("YOU FOUND IT");
+			
 			newBoard.getChildren().add(end);
 		});
 		end.setOnAction((event)->{

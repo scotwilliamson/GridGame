@@ -8,7 +8,7 @@ public abstract class Game {
 	Button end = new Button("END GAME");
 	static Label GG = new Label("GG"); 
 	
-	public abstract boolean checkForWin();
+	
 	public abstract int switchTurns();
 
 }
