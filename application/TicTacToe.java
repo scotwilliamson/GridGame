@@ -12,21 +12,14 @@ public class TicTacToe implements Game {
 	Label rules1 = new Label("O starts first!");
 	Label rules2 = new Label("Next Game the Opposite Starts First!");
 	Label rules3 = new Label("If game ends in a tie click 'End Game'!");
-	Label GG = new Label("GG"); 
+	static Label GG = new Label("GG"); 
 
 	public TicTacToe() {
 	}
 
+	
+
 	public boolean checkForWin() {
-
-		if (true) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public boolean win() {
 		if (((ticTacGrid[0][0].getText() == ticTacGrid[0][1].getText() && ticTacGrid[0][1].getText() == ticTacGrid[0][2].getText()) && ticTacGrid[0][0].getText() != "")
 				|| ((ticTacGrid[0][0].getText() == ticTacGrid[1][0].getText() && ticTacGrid[1][0].getText() == ticTacGrid[2][0].getText()) && ticTacGrid[0][0].getText() != "")
 				|| ((ticTacGrid[0][0].getText() == ticTacGrid[1][1].getText() && ticTacGrid[1][1].getText() == ticTacGrid[2][2].getText()) && ticTacGrid[0][0].getText() != "")
@@ -71,22 +64,22 @@ public class TicTacToe implements Game {
 			if (((TicTacToeButton) button1).pressCheck == true) {
 				turn = switchTurns();
 				((TicTacToeButton) button1).pressCheck = false;
-				if ((((TicTacToeButton) button1).chooseXO()) == true) {
+				if ((((TicTacToeButton) button1).chooseXO(((TicTacToeButton) button1))) == true) {
 					ticTacGrid[0][0].setText("X");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				} else {
 					ticTacGrid[0][0].setText("O");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				}
@@ -98,22 +91,22 @@ public class TicTacToe implements Game {
 			if (((TicTacToeButton) button2).pressCheck == true) {
 				turn = switchTurns();
 				((TicTacToeButton) button2).pressCheck = false;
-				if ((((TicTacToeButton) button2).chooseXO()) == true) {
+				if ((((TicTacToeButton) button2).chooseXO(((TicTacToeButton) button1))) == true) {
 					ticTacGrid[0][1].setText("X");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				} else {
 					ticTacGrid[0][1].setText("O");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				}
@@ -127,20 +120,20 @@ public class TicTacToe implements Game {
 				((TicTacToeButton) button3).pressCheck = false;
 				if ((((TicTacToeButton) button3).chooseXO()) == true) {
 					ticTacGrid[0][2].setText("X");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				} else {
 					ticTacGrid[0][2].setText("O");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				}
@@ -152,22 +145,22 @@ public class TicTacToe implements Game {
 			if (((TicTacToeButton) button4).pressCheck == true) {
 				turn = switchTurns();
 				((TicTacToeButton) button4).pressCheck = false;
-				if ((((TicTacToeButton) button4).chooseXO()) == true) {
+				if ((((TicTacToeButton) button4).chooseXO(((TicTacToeButton) button1))) == true) {
 					ticTacGrid[1][0].setText("X");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				} else {
 					ticTacGrid[1][0].setText("O");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				}
@@ -181,20 +174,20 @@ public class TicTacToe implements Game {
 				((TicTacToeButton) button5).pressCheck = false;
 				if ((((TicTacToeButton) button5).chooseXO()) == true) {
 					ticTacGrid[1][1].setText("X");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				} else {
 					ticTacGrid[1][1].setText("O");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				}
@@ -208,20 +201,20 @@ public class TicTacToe implements Game {
 				((TicTacToeButton) button6).pressCheck = false;
 				if ((((TicTacToeButton) button6).chooseXO()) == true) {
 					ticTacGrid[1][2].setText("X");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				} else {
 					ticTacGrid[1][2].setText("O");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				}
@@ -235,20 +228,20 @@ public class TicTacToe implements Game {
 				((TicTacToeButton) button7).pressCheck = false;
 				if ((((TicTacToeButton) button7).chooseXO()) == true) {
 					ticTacGrid[2][0].setText("X");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				} else {
 					ticTacGrid[2][0].setText("O");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				}
@@ -262,20 +255,20 @@ public class TicTacToe implements Game {
 				((TicTacToeButton) button8).pressCheck = false;
 				if ((((TicTacToeButton) button8).chooseXO()) == true) {
 					ticTacGrid[2][1].setText("X");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				} else {
 					ticTacGrid[2][1].setText("O");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				}
@@ -287,22 +280,22 @@ public class TicTacToe implements Game {
 			if (((TicTacToeButton) button9).pressCheck == true) {
 				turn = switchTurns();
 				((TicTacToeButton) button9).pressCheck = false;
-				if ((((TicTacToeButton) button9).chooseXO()) == true) {
+				if ((((TicTacToeButton) button9).chooseXO(((TicTacToeButton) button1))) == true) {
 					ticTacGrid[2][2].setText("X");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				} else {
 					ticTacGrid[2][2].setText("O");
-					if (win() == true) {
+					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
 								ticTacGrid[0][1], ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1],
 								ticTacGrid[1][2], ticTacGrid[2][2], end, rules1, rules2, rules3);
-						newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe, GG);
+						newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe, GG);
 					} else {
 					}
 				}
@@ -314,7 +307,7 @@ public class TicTacToe implements Game {
 			newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0], ticTacGrid[0][1],
 					ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1], ticTacGrid[1][2], ticTacGrid[2][2], end,
 					rules1, rules2, rules3, GG);
-			newBoard.getChildren().addAll(Main.SmallBoat, Main.TicTacToe);
+			newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe);
 		});
 
 		end.setMaxSize(250, 250);

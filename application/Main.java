@@ -9,8 +9,9 @@ import javafx.scene.layout.StackPane;
 
 
 public class Main extends Application {
-	static Button SmallBoat = new Button("Small Boat Game");
+	static Button SmallBoatbtn = new Button("Small Boat Game");
 	static Button TicTacToe = new Button("Tic Tac Toe");
+	
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -19,10 +20,10 @@ public class Main extends Application {
 			
 			
 			
-			SmallBoat.setMaxWidth(200);
-			SmallBoat.setMaxHeight(200);
-			SmallBoat.setTranslateX(100);
-			SmallBoat.setTranslateY(0);
+			SmallBoatbtn.setMaxWidth(200);
+			SmallBoatbtn.setMaxHeight(200);
+			SmallBoatbtn.setTranslateX(100);
+			SmallBoatbtn.setTranslateY(0);
 			
 			
 			
@@ -33,11 +34,11 @@ public class Main extends Application {
 			
 			
 			
-			SmallBoat.setOnAction((event) -> {
+			SmallBoatbtn.setOnAction((event) -> {
 			    SmallBoatGame SBG = new SmallBoatGame();
-			    root.getChildren().removeAll(TicTacToe, SmallBoat);
+			    root.getChildren().removeAll(TicTacToe, SmallBoatbtn);
 			    SBG.setBoard();
-			    Scene newScene = new Scene(SBG.setBoard(), 750, 750);
+			    Scene newScene = new Scene(SBG.setBoard(), 1250, 750);
 			    primaryStage.setScene(newScene);
 				primaryStage.show();
 			});
@@ -46,7 +47,7 @@ public class Main extends Application {
 			
 			TicTacToe.setOnAction((event) -> {
 			    TicTacToe TTT = new TicTacToe();
-			    root.getChildren().removeAll(TicTacToe, SmallBoat);
+			    root.getChildren().removeAll(TicTacToe, SmallBoatbtn);
 			    TTT.setBoard();
 			    Scene newScene = new Scene(TTT.setBoard(), 1250, 750);
 			    primaryStage.setScene(newScene);
@@ -54,7 +55,7 @@ public class Main extends Application {
 			});
 			
 			
-			root.getChildren().addAll(SmallBoat, TicTacToe);
+			root.getChildren().addAll(SmallBoatbtn, TicTacToe);
 			
 			
 			Scene scene = new Scene(root,1250,750);
