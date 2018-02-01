@@ -7,15 +7,15 @@ import javafx.scene.layout.StackPane;
 
 public class TicTacToe extends Game {
 
-	Button[][] ticTacGrid = new Button[3][3];
-	Label rules1 = new Label("O starts first!");
+	Button[][] ticTacGrid = new Button[3][3]; // grid
+	Label rules1 = new Label("O starts first!"); // rules
 	Label rules2 = new Label("Next Game the Opposite Starts First!");
 	Label rules3 = new Label("If game ends in a tie click 'End Game'!");
 
 	public TicTacToe() {
 	}
 
-	public boolean checkForWin() {
+	public boolean checkForWin() { // check for win
 		if (((ticTacGrid[0][0].getText() == ticTacGrid[0][1].getText()
 				&& ticTacGrid[0][1].getText() == ticTacGrid[0][2].getText()) && ticTacGrid[0][0].getText() != "")
 				|| ((ticTacGrid[0][0].getText() == ticTacGrid[1][0].getText()
@@ -50,7 +50,7 @@ public class TicTacToe extends Game {
 	}
 
 	public StackPane setBoard() {
-		TicTacToe button1 = new TicTacToeButton();
+		TicTacToe button1 = new TicTacToeButton(); // create new objects
 		TicTacToe button2 = new TicTacToeButton();
 		TicTacToe button3 = new TicTacToeButton();
 		TicTacToe button4 = new TicTacToeButton();
@@ -61,7 +61,7 @@ public class TicTacToe extends Game {
 		TicTacToe button9 = new TicTacToeButton();
 		StackPane newBoard = new StackPane();
 		for (int i = 0; i < 3; i++) {
-			for (int k = 0; k < 3; k++) {
+			for (int k = 0; k < 3; k++) { // create grid
 				ticTacGrid[i][k] = new Button();
 				ticTacGrid[i][k].setMaxHeight(250);
 				ticTacGrid[i][k].setMaxWidth(250);
@@ -71,11 +71,17 @@ public class TicTacToe extends Game {
 			}
 		}
 
-		ticTacGrid[0][0].setOnAction((event) -> {
-			if (((TicTacToeButton) button1).pressCheck == true) {
-				turn = switchTurns();
-				((TicTacToeButton) button1).pressCheck = false;
-				if ((((TicTacToeButton) button1).chooseXO(((TicTacToeButton) button1))) == true) {
+		ticTacGrid[0][0].setOnAction((event) -> { // creating on action event
+													// handlers
+			if (((TicTacToeButton) button1).pressCheck == true) { // lots of
+																	// downcasting
+				turn = switchTurns(); // increment turn
+				((TicTacToeButton) button1).pressCheck = false; // cant reclick
+																// button now
+				if ((((TicTacToeButton) button1).chooseXO(((TicTacToeButton) button1))) == true) { // choose
+																									// x
+																									// or
+																									// o
 					ticTacGrid[0][0].setText("X");
 					if (checkForWin() == true) {
 						newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0],
@@ -314,14 +320,14 @@ public class TicTacToe extends Game {
 			}
 		});
 
-		end.setOnAction((event) -> {
+		end.setOnAction((event) -> { // end on action event handler
 			newBoard.getChildren().removeAll(ticTacGrid[0][0], ticTacGrid[1][0], ticTacGrid[2][0], ticTacGrid[0][1],
 					ticTacGrid[0][2], ticTacGrid[1][1], ticTacGrid[2][1], ticTacGrid[1][2], ticTacGrid[2][2], end,
 					rules1, rules2, rules3, GG);
 			newBoard.getChildren().addAll(Main.SmallBoatbtn, Main.TicTacToe);
 		});
 
-		end.setMaxSize(250, 250);
+		end.setMaxSize(250, 250); // dimensions
 		end.setTranslateX(-500);
 
 		rules1.setMaxSize(250, 250);

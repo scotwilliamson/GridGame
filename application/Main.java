@@ -8,7 +8,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
 public class Main extends Application {
-	static Button SmallBoatbtn = new Button("Small Boat Game");
+	static Button SmallBoatbtn = new Button("Small Boat Game"); // starting
+																// buttons
 	static Button TicTacToe = new Button("Tic Tac Toe");
 
 	@Override
@@ -16,17 +17,15 @@ public class Main extends Application {
 		try {
 			StackPane root = new StackPane();
 
-			SmallBoatbtn.setMaxWidth(200);
+			SmallBoatbtn.setMaxWidth(200); // dimensions
 			SmallBoatbtn.setMaxHeight(200);
 			SmallBoatbtn.setTranslateX(100);
-			SmallBoatbtn.setTranslateY(0);
 
 			TicTacToe.setMaxWidth(200);
 			TicTacToe.setMaxHeight(200);
 			TicTacToe.setTranslateX(-100);
-			TicTacToe.setTranslateY(0);
 
-			SmallBoatbtn.setOnAction((event) -> {
+			SmallBoatbtn.setOnAction((event) -> { // start small boat game
 				SmallBoatGame SBG = new SmallBoatGame();
 				root.getChildren().removeAll(TicTacToe, SmallBoatbtn);
 				SBG.setBoard();
@@ -35,7 +34,7 @@ public class Main extends Application {
 				primaryStage.show();
 			});
 
-			TicTacToe.setOnAction((event) -> {
+			TicTacToe.setOnAction((event) -> { // start tic tac toe
 				TicTacToe TTT = new TicTacToe();
 				root.getChildren().removeAll(TicTacToe, SmallBoatbtn);
 				TTT.setBoard();

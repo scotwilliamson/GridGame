@@ -8,7 +8,7 @@ public class TicTacToeButton extends TicTacToe {
 	public TicTacToeButton() {
 	}
 
-	public boolean chooseXO(TicTacToeButton a) {
+	public boolean chooseXO(TicTacToeButton a) { // overload
 		if (turn % 2 == 0) {
 			return true;
 		} else if (turn % 2 == 1) {

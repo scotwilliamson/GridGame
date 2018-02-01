@@ -8,25 +8,27 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class SmallBoatGame extends Game {
+	// setting up instance variables
 	Button quit = new Button("Be a quitter");
 	boolean[] clicked = new boolean[25];
 	boolean winClick = true;
 	Button[][] grid = new Button[5][5];
 	Label turnCounter = new Label();
-	Label rules1 = new Label("Try and find the Boat!");
+	Label rules1 = new Label("Try and find the Boat!"); // rules/instructions
 	Label rules2 = new Label("X means you missed,");
 	Label rules3 = new Label("Try to do it with the");
 	Label rules4 = new Label("least amount of clicks!");
 
 	public SmallBoatGame() {
-	}
+	} // constructor
 
-	public StackPane setBoard() {
+	public StackPane setBoard() { // main method of this class
 		StackPane newBoard = new StackPane();
-		for (int a = 0; a < 25; a++) {
+		for (int a = 0; a < 25; a++) { // for checking if button has been
+										// clicked
 			clicked[a] = true;
 		}
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 5; i++) { // creating the grid of buttons
 			for (int k = 0; k < 5; k++) {
 				grid[i][k] = new Button();
 				grid[i][k].setMaxHeight(150);
@@ -37,15 +39,17 @@ public class SmallBoatGame extends Game {
 				newBoard.getChildren().add(grid[i][k]);
 			}
 		}
-		grid[0][0].setOnAction((event) -> {
-			if (clicked[0] == true) {
-				grid[0][0].setText("X");
+		grid[0][0].setOnAction((event) -> { // painfully initializing the
+											// onAction handlers
+			if (clicked[0] == true) { // doing it outside of for loop cuz it
+										// breaks
+				grid[0][0].setText("X"); // if its in the for loop
 				switchTurns();
 				clicked[0] = false;
 			}
 		});
 		grid[0][1].setOnAction((event) -> {
-			if (clicked[1] == true) {
+			if (clicked[1] == true) { // makes sure button cant be clicked again
 				grid[0][1].setText("X");
 				switchTurns();
 				clicked[1] = false;
@@ -212,7 +216,9 @@ public class SmallBoatGame extends Game {
 				clicked[24] = false;
 			}
 		});
-		int x = ((int) (Math.random() / 2 * 10));
+
+		int x = ((int) (Math.random() / 2 * 10)); // redoing winning button's on
+													// Action
 		int y = ((int) (Math.random() / 2 * 10));
 		grid[x][y].setOnAction((event) -> {
 			if (winClick == true) {
@@ -221,21 +227,21 @@ public class SmallBoatGame extends Game {
 				newBoard.getChildren().add(end);
 			}
 		});
-		end.setOnAction((event) -> {
+		end.setOnAction((event) -> { // the kill button
 			newBoard.getChildren().removeAll(grid[0][0], grid[0][1], grid[0][2], grid[0][3], grid[0][4], grid[1][0],
 					grid[1][1], grid[1][2], grid[1][3], grid[1][4], grid[2][0], grid[2][1], grid[2][2], grid[2][3],
 					grid[2][4], grid[3][0], grid[3][1], grid[3][2], grid[3][3], grid[3][4], grid[4][0], grid[4][1],
 					grid[4][2], grid[4][3], grid[4][4], rules1, rules2, rules3, turnCounter, rules4, end, quit);
 			newBoard.getChildren().addAll(Main.TicTacToe, Main.SmallBoatbtn, GG);
 		});
-		quit.setOnAction((event) -> {
+		quit.setOnAction((event) -> { // the button for quiting early
 			newBoard.getChildren().removeAll(grid[0][0], grid[0][1], grid[0][2], grid[0][3], grid[0][4], grid[1][0],
 					grid[1][1], grid[1][2], grid[1][3], grid[1][4], grid[2][0], grid[2][1], grid[2][2], grid[2][3],
 					grid[2][4], grid[3][0], grid[3][1], grid[3][2], grid[3][3], grid[3][4], grid[4][0], grid[4][1],
 					grid[4][2], grid[4][3], grid[4][4], rules1, rules2, rules3, turnCounter, rules4, end, quit);
 			newBoard.getChildren().addAll(Main.TicTacToe, Main.SmallBoatbtn);
 		});
-		GG.setMaxSize(250, 250);
+		GG.setMaxSize(250, 250); // good old dimensions and etc
 		GG.setTranslateX(125);
 		GG.setTranslateY(-150);
 		rules1.setMaxSize(150, 150);
@@ -263,7 +269,7 @@ public class SmallBoatGame extends Game {
 		return newBoard;
 	}
 
-	public int switchTurns() {
+	public int switchTurns() { // score counter basically
 		turn++;
 		turnCounter.setText("Turn Count: " + turn);
 		return turn;
