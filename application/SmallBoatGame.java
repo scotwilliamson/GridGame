@@ -7,9 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class SmallBoatGame implements Game {
-	int turn=0;
-	Button end = new Button("END GAME");
+public class SmallBoatGame extends Game {
 	Button quit = new Button("Be a quitter");
 	boolean winCount = false;
 	Button[][] grid = new Button[5][5]; 
@@ -163,7 +161,7 @@ public class SmallBoatGame implements Game {
 				grid[3][0], grid[3][1], grid[3][2], grid[3][3], grid[3][4], 
 				grid[4][0], grid[4][1], grid[4][2], grid[4][3], grid[4][4],
 				rules1, rules2, rules3, turnCounter, rules4, end);
-			newBoard.getChildren().addAll(Main.TicTacToe, Main.SmallBoatbtn, TicTacToe.GG);
+			newBoard.getChildren().addAll(Main.TicTacToe, Main.SmallBoatbtn, GG);
 		});
 		quit.setOnAction((event)->{
 			newBoard.getChildren().removeAll(
@@ -175,9 +173,9 @@ public class SmallBoatGame implements Game {
 				rules1, rules2, rules3, turnCounter, rules4, end, quit);
 			newBoard.getChildren().addAll(Main.TicTacToe, Main.SmallBoatbtn);
 		});
-		TicTacToe.GG.setMaxSize(250, 250);
-		TicTacToe.GG.setTranslateX(125);
-		TicTacToe.GG.setTranslateY(-150);
+		GG.setMaxSize(250, 250);
+		GG.setTranslateX(125);
+		GG.setTranslateY(-150);
 		rules1.setMaxSize(150,150);
 		rules1.setTranslateX(500);
 		rules2.setMaxSize(150,150);

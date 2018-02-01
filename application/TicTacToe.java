@@ -5,14 +5,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
-public class TicTacToe implements Game {
-	static int turn = 0;
+public class TicTacToe extends Game {
+	
 	Button[][] ticTacGrid = new Button[3][3];
-	Button end = new Button("END GAME");
 	Label rules1 = new Label("O starts first!");
 	Label rules2 = new Label("Next Game the Opposite Starts First!");
 	Label rules3 = new Label("If game ends in a tie click 'End Game'!");
-	static Label GG = new Label("GG"); 
+	
 
 	public TicTacToe() {
 	}
